@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import BusinessLogic.Arco;
 import BusinessLogic.Bola;
 import BusinessLogic.Circulo;
 import java.awt.Color;
@@ -205,6 +206,14 @@ public class DodgeBallView extends javax.swing.JFrame implements Observer {
         renderCirculo(m.circulo, media);
         renderBola(m.bola, media);
         renderRaqueta(m, media);
+        renderArcoBueno(m.arco1, media);
+        renderArcoBueno(m.arco2, media);
+        renderArcoBueno(m.arco3, media);
+        renderArcoBueno(m.arco4, media);
+        renderArcoMalo(m.arco5, media);
+        renderArcoMalo(m.arco6, media);
+        renderArcoMalo(m.arco7, media);
+        renderArcoMalo(m.arco8, media);
     }
 
     @Override
@@ -226,7 +235,7 @@ public class DodgeBallView extends javax.swing.JFrame implements Observer {
     }
 
     static void renderCirculo(Circulo circulo, Graphics media) {
-        media.setColor(Color.green);
+        media.setColor(Color.blue);
         media.drawOval(circulo.getX() , circulo.getY() , circulo.getRadio(), circulo.getRadio());
     }
 
@@ -239,6 +248,16 @@ public class DodgeBallView extends javax.swing.JFrame implements Observer {
     void renderRaqueta(DodgeBallModel m, Graphics media) {
         media.setColor(Color.green);
         media.drawRect(m.raqueta.getX(), m.raqueta.getY()+50, 190, 60);
+    }
+    
+    static void renderArcoBueno(Arco arco, Graphics media){
+        media.setColor(Color.YELLOW);
+        media.drawArc(arco.getX(), arco.getY(), arco.getRadio(), arco.getRadio(), arco.getGradoStart(), arco.getGradoEnd());
+    }
+    
+    static void renderArcoMalo(Arco arco, Graphics media){
+        media.setColor(Color.red);
+        media.drawArc(arco.getX(), arco.getY(), arco.getRadio(), arco.getRadio(), arco.getGradoStart(), arco.getGradoEnd());
     }
 
     
